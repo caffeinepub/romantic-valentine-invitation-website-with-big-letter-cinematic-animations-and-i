@@ -1,0 +1,24 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Expand Valentine letter content to ~500 words",
+  "requirements": [
+    {
+      "id": "REQ-6",
+      "summary": "Update the Valentine invitation letter body to a single cohesive heartfelt ~500-word English letter while keeping the final “Will you be my Valentine?” line exactly and visually prominent, without breaking the existing reveal animations.",
+      "acceptanceCriteria": [
+        "The rendered letter body (excluding the final “Will you be my Valentine?” headline) is approximately 500 words (acceptable range: 450–550).",
+        "The letter remains romantic and suitable for asking the user’s girlfriend to be their Valentine.",
+        "The existing animated line/letter reveal behavior still works (no broken layout, no missing text).",
+        "The final main question text remains exactly: “Will you be my Valentine?” and remains visually prominent."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/LetterCard.tsx",
+          "operation": "modify",
+          "description": "Replace the current short `letterLines` content with a single cohesive heartfelt English letter totaling ~500 words (450–550 acceptable), while preserving the existing `letterLines.map(...)` reveal animation behavior and keeping the final `<h1>` text exactly “Will you be my Valentine?” (unchanged and prominent). Ensure any line breaks are represented as empty-string entries so spacing and animation cadence remain intact."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "kind": "coverage_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-14T06:38:51.045Z",
+  "sources": {
+    "buildRequest": true,
+    "implementationPlan": true
+  },
+  "requirements": {
+    "total": 1,
+    "implemented": 1,
+    "items": [
+      {
+        "id": "REQ-6",
+        "summary": "Replace the current short letter content in the Valentine invitation letter with a single cohesive heartfelt English letter of approximately 500 words, keeping the final main question “Will you be my Valentine?” as the prominent call-to-action line on the letter.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/LetterCard.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/LetterCard.tsx"
+        ]
+      }
+    ]
+  },
+  "changedFiles": [
+    "build-request.json",
+    "build-template/README.md",
+    "feature_evidence.json",
+    "frontend-file-summaries.txt",
+    "frontend-implementation-plan.json",
+    "frontend/src/components/LetterCard.tsx",
+    "project_state.json",
+    "scratch/component-selection.json",
+    "spec.md",
+    "spec_vs_diff_report.json"
+  ]
+}

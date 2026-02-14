@@ -1,0 +1,374 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --radius: 0.75rem;
+        
+        /* Romantic Valentine Theme - Light Mode */
+        --background: 0.98 0.01 15;
+        --foreground: 0.25 0.02 15;
+        --card: 1 0.005 15;
+        --card-foreground: 0.25 0.02 15;
+        --popover: 1 0.005 15;
+        --popover-foreground: 0.25 0.02 15;
+        --primary: 0.55 0.18 15;
+        --primary-foreground: 0.99 0.005 15;
+        --secondary: 0.96 0.015 15;
+        --secondary-foreground: 0.35 0.02 15;
+        --muted: 0.95 0.01 15;
+        --muted-foreground: 0.50 0.015 15;
+        --accent: 0.94 0.02 15;
+        --accent-foreground: 0.35 0.02 15;
+        --destructive: 0.577 0.245 27.325;
+        --destructive-foreground: 0.985 0 0;
+        --border: 0.90 0.01 15;
+        --input: 0.90 0.01 15;
+        --ring: 0.55 0.18 15;
+        
+        /* Custom romantic colors */
+        --romantic-overlay: 0.30 0.03 15;
+        --romantic-paper: 0.98 0.005 25;
+        --romantic-text: 0.30 0.025 15;
+        --romantic-heart: 0.55 0.22 15;
+        --romantic-sparkle: 0.70 0.15 50;
+        --romantic-muted: 0.65 0.01 15;
+        --romantic-link: 0.50 0.18 15;
+        --romantic-link-hover: 0.45 0.20 15;
+        --romantic-border: 0.90 0.01 15;
+        
+        --chart-1: 0.646 0.222 41.116;
+        --chart-2: 0.6 0.118 184.704;
+        --chart-3: 0.398 0.07 227.392;
+        --chart-4: 0.828 0.189 84.429;
+        --chart-5: 0.769 0.188 70.08;
+        --sidebar: 0.985 0 0;
+        --sidebar-foreground: 0.145 0 0;
+        --sidebar-primary: 0.205 0 0;
+        --sidebar-primary-foreground: 0.985 0 0;
+        --sidebar-accent: 0.97 0 0;
+        --sidebar-accent-foreground: 0.205 0 0;
+        --sidebar-border: 0.922 0 0;
+        --sidebar-ring: 0.708 0 0;
+    }
+
+    .dark {
+        --background: 0.18 0.02 15;
+        --foreground: 0.95 0.005 15;
+        --card: 0.22 0.02 15;
+        --card-foreground: 0.95 0.005 15;
+        --popover: 0.25 0.02 15;
+        --popover-foreground: 0.95 0.005 15;
+        --primary: 0.65 0.18 15;
+        --primary-foreground: 0.20 0.02 15;
+        --secondary: 0.28 0.02 15;
+        --secondary-foreground: 0.95 0.005 15;
+        --muted: 0.28 0.02 15;
+        --muted-foreground: 0.65 0.01 15;
+        --accent: 0.35 0.025 15;
+        --accent-foreground: 0.95 0.005 15;
+        --destructive: 0.704 0.191 22.216;
+        --destructive-foreground: 0.205 0 0;
+        --border: 1 0 0 / 12%;
+        --input: 1 0 0 / 18%;
+        --ring: 0.60 0.15 15;
+        
+        /* Custom romantic colors - Dark Mode */
+        --romantic-overlay: 0.15 0.02 15;
+        --romantic-paper: 0.25 0.02 20;
+        --romantic-text: 0.92 0.005 15;
+        --romantic-heart: 0.65 0.20 15;
+        --romantic-sparkle: 0.75 0.15 50;
+        --romantic-muted: 0.60 0.01 15;
+        --romantic-link: 0.70 0.16 15;
+        --romantic-link-hover: 0.75 0.18 15;
+        --romantic-border: 0.35 0.02 15;
+        
+        --chart-1: 0.488 0.243 264.376;
+        --chart-2: 0.696 0.17 162.48;
+        --chart-3: 0.769 0.188 70.08;
+        --chart-4: 0.627 0.265 303.9;
+        --chart-5: 0.645 0.246 16.439;
+        --sidebar: 0.205 0 0;
+        --sidebar-foreground: 0.985 0 0;
+        --sidebar-primary: 0.488 0.243 264.376;
+        --sidebar-primary-foreground: 0.985 0 0;
+        --sidebar-accent: 0.269 0 0;
+        --sidebar-accent-foreground: 0.985 0 0;
+        --sidebar-border: 1 0 0 / 10%;
+        --sidebar-ring: 0.439 0 0;
+    }
+
+    * {
+        @apply border-border;
+    }
+    
+    body {
+        @apply bg-background text-foreground;
+        font-family: 'Georgia', 'Palatino', 'Times New Roman', serif;
+    }
+}
+
+@layer components {
+    /* Letter Card Styles */
+    .letter-card {
+        @apply relative;
+    }
+
+    .letter-paper {
+        @apply relative rounded-2xl shadow-2xl p-8 md:p-12 lg:p-16;
+        background-color: oklch(var(--romantic-paper));
+        border: 1px solid oklch(var(--romantic-border) / 0.5);
+        background-image: linear-gradient(
+            135deg,
+            oklch(var(--romantic-paper)) 0%,
+            oklch(var(--romantic-paper) / 0.95) 100%
+        );
+        box-shadow: 
+            0 20px 60px -12px oklch(var(--romantic-overlay) / 0.4),
+            0 8px 24px -8px oklch(var(--romantic-overlay) / 0.3),
+            inset 0 1px 0 oklch(1 0 0 / 0.1);
+    }
+
+    .letter-line {
+        @apply leading-relaxed;
+        @apply text-base md:text-lg;
+        color: oklch(var(--romantic-text));
+        animation: fadeInUp 0.8s ease-out forwards;
+        font-family: 'Georgia', 'Palatino', 'Times New Roman', serif;
+    }
+
+    .letter-greeting {
+        @apply text-xl md:text-2xl font-semibold mb-2;
+        font-family: 'Brush Script MT', cursive, 'Georgia', serif;
+    }
+
+    .letter-question {
+        @apply italic;
+        color: oklch(var(--romantic-text) / 0.8);
+    }
+
+    .letter-main-question {
+        @apply text-3xl md:text-4xl lg:text-5xl font-bold text-center mt-8;
+        @apply bg-gradient-to-r from-romantic-heart via-romantic-sparkle to-romantic-heart bg-clip-text text-transparent;
+        animation: fadeInUp 0.8s ease-out forwards, shimmer 3s ease-in-out infinite;
+        font-family: 'Georgia', 'Palatino', 'Times New Roman', serif;
+        letter-spacing: -0.02em;
+    }
+
+    /* CTA Button Styles */
+    .cta-button {
+        @apply text-base md:text-lg font-semibold;
+        @apply transition-all duration-300 ease-out;
+        @apply shadow-lg hover:shadow-xl;
+        animation: fadeInUp 0.8s ease-out forwards;
+    }
+
+    .cta-button-yes {
+        @apply bg-gradient-to-r from-romantic-heart to-romantic-sparkle;
+        @apply text-white border-0;
+        @apply hover:scale-105 hover:shadow-romantic-glow;
+        @apply active:scale-95;
+    }
+
+    .cta-button-no {
+        @apply backdrop-blur-sm;
+        @apply hover:scale-105;
+        @apply active:scale-95;
+        background-color: oklch(var(--romantic-paper) / 0.8);
+        color: oklch(var(--romantic-text));
+        border: 1px solid oklch(var(--romantic-border) / 0.3);
+    }
+    
+    .cta-button-no:hover {
+        background-color: oklch(var(--romantic-paper));
+        border-color: oklch(var(--romantic-border) / 0.5);
+    }
+
+    /* Outcome Scene Styles */
+    .outcome-scene {
+        @apply relative;
+    }
+
+    .outcome-content {
+        @apply rounded-3xl shadow-2xl p-8 md:p-12 lg:p-16;
+        @apply text-center;
+        background-color: oklch(var(--romantic-paper));
+        border: 1px solid oklch(var(--romantic-border) / 0.5);
+        background-image: linear-gradient(
+            135deg,
+            oklch(var(--romantic-paper)) 0%,
+            oklch(var(--romantic-paper) / 0.95) 100%
+        );
+        box-shadow: 
+            0 20px 60px -12px oklch(var(--romantic-overlay) / 0.4),
+            0 8px 24px -8px oklch(var(--romantic-overlay) / 0.3);
+    }
+
+    .outcome-yes .outcome-content {
+        animation: celebrationPulse 2s ease-in-out infinite;
+    }
+
+    .outcome-title {
+        @apply text-4xl md:text-5xl lg:text-6xl font-bold;
+        @apply bg-gradient-to-r from-romantic-heart via-romantic-sparkle to-romantic-heart bg-clip-text text-transparent;
+        font-family: 'Georgia', 'Palatino', 'Times New Roman', serif;
+        letter-spacing: -0.02em;
+    }
+
+    .outcome-message {
+        @apply max-w-2xl mx-auto;
+    }
+
+    .outcome-reset-button {
+        @apply backdrop-blur-sm;
+        @apply transition-all duration-300;
+        background-color: oklch(var(--romantic-paper) / 0.8);
+        color: oklch(var(--romantic-text));
+        border: 1px solid oklch(var(--romantic-border) / 0.3);
+    }
+    
+    .outcome-reset-button:hover {
+        background-color: oklch(var(--romantic-paper));
+        border-color: oklch(var(--romantic-border) / 0.5);
+    }
+
+    .outcome-reset-button-primary {
+        @apply bg-gradient-to-r from-romantic-heart to-romantic-sparkle;
+        @apply text-white border-0;
+        @apply hover:scale-105 hover:shadow-romantic-glow;
+        @apply transition-all duration-300;
+    }
+}
+
+@layer utilities {
+    .drop-shadow-romantic {
+        filter: drop-shadow(0 10px 20px oklch(var(--romantic-overlay) / 0.3));
+    }
+
+    .shadow-romantic-glow {
+        box-shadow: 
+            0 0 30px oklch(var(--romantic-heart) / 0.4),
+            0 0 60px oklch(var(--romantic-sparkle) / 0.2);
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes shimmer {
+        0%, 100% {
+            background-position: 0% 50%;
+        }
+        50% {
+            background-position: 100% 50%;
+        }
+    }
+
+    @keyframes heartbeat {
+        0%, 100% {
+            transform: scale(1);
+        }
+        10%, 30% {
+            transform: scale(1.1);
+        }
+        20%, 40% {
+            transform: scale(1);
+        }
+    }
+
+    @keyframes heartbeatCelebration {
+        0%, 100% {
+            transform: scale(1);
+        }
+        25% {
+            transform: scale(1.2);
+        }
+        50% {
+            transform: scale(1);
+        }
+        75% {
+            transform: scale(1.15);
+        }
+    }
+
+    @keyframes sparkle1 {
+        0%, 100% {
+            opacity: 0.3;
+            transform: scale(0.8) rotate(0deg);
+        }
+        50% {
+            opacity: 1;
+            transform: scale(1.2) rotate(180deg);
+        }
+    }
+
+    @keyframes sparkle2 {
+        0%, 100% {
+            opacity: 0.4;
+            transform: scale(0.9) rotate(0deg);
+        }
+        50% {
+            opacity: 1;
+            transform: scale(1.1) rotate(-180deg);
+        }
+    }
+
+    @keyframes gentleBounce {
+        0%, 100% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(-10px);
+        }
+    }
+
+    @keyframes celebrationPulse {
+        0%, 100% {
+            transform: scale(1);
+        }
+        50% {
+            transform: scale(1.02);
+        }
+    }
+
+    .animate-heartbeat {
+        animation: heartbeat 2s ease-in-out infinite;
+    }
+
+    .animate-heartbeat-celebration {
+        animation: heartbeatCelebration 1.5s ease-in-out infinite;
+    }
+
+    .animate-sparkle-1 {
+        animation: sparkle1 2s ease-in-out infinite;
+    }
+
+    .animate-sparkle-2 {
+        animation: sparkle2 2.5s ease-in-out infinite 0.5s;
+    }
+
+    .animate-gentle-bounce {
+        animation: gentleBounce 2s ease-in-out infinite;
+    }
+
+    /* Reduced motion support */
+    @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+            animation-duration: 0.01ms !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: 0.01ms !important;
+        }
+    }
+}

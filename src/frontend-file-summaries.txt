@@ -1,0 +1,10 @@
+{
+  "frontend/src/App.tsx": "Root application component that renders the ValentineInvitePage as the main view.",
+  "frontend/src/components/ValentineInvitePage.tsx": "Main page component managing scene state (initial/yes/no), orchestrating cinematic animations, displaying the background image and envelope illustration, and rendering the appropriate scene with footer attribution (fixed duration by using inline style instead of arbitrary Tailwind class).",
+  "frontend/src/components/LetterCard.tsx": "Letter component that displays an expanded ~500-word heartfelt Valentine message with staggered line-by-line reveal animations and a prominent main question, using properly escaped apostrophes.",
+  "frontend/src/components/CtaRow.tsx": "Call-to-action button row component with animated \"Yes\" and \"No\" buttons using shadcn Button with icons from lucide-react.",
+  "frontend/src/components/OutcomeScene.tsx": "Outcome scene component that displays either a celebratory \"Yes\" response with sparkle animations or a gentle \"No\" response with playful encouragement, both including reset functionality.",
+  "frontend/src/index.css": "Global styles defining a romantic OKLCH color theme with warm pinks/reds, custom animations (fadeInUp, shimmer, heartbeat, sparkle), letter card styling, CTA button styles, and outcome scene layouts with reduced-motion support (all opacity modifiers replaced with direct CSS color values to fix @apply compatibility issues).",
+  "frontend/tailwind.config.js": "Tailwind configuration extended with romantic color tokens including romantic-border, serif/script font families, and custom utilities for the Valentine theme.",
+  "frontend/index.html": "HTML entry point with updated title and favicon link to the generated Valentine favicon asset."
+}

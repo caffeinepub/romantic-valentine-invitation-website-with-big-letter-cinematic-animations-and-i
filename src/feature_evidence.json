@@ -1,0 +1,23 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-replace-the-current-short-letter-content-in-the-valentine-invitation-letter-with-a-single-cohesive-heartfelt-english-letter-of-approximately-500-words-keeping-the-final-main-question-will-you-be-my-valentine-as-the-prominent-call-to-action-line-on-the-letter",
+      "featureTitle": "Replace the current short letter content in the Valentine invitation letter with a single cohesive heartfelt English letter of approximately 500 words, keeping the final main question “Will you be my Valentine?” as the prominent call-to-action line on the letter.",
+      "files": [
+        "frontend/src/components/LetterCard.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-6"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

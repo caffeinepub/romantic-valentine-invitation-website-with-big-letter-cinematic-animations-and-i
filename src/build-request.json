@@ -1,0 +1,39 @@
+{
+  "kind": "build_request",
+  "title": "Expand the Valentine letter to ~500 words",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-6",
+      "text": "Replace the current short letter content in the Valentine invitation letter with a single cohesive heartfelt English letter of approximately 500 words, keeping the final main question “Will you be my Valentine?” as the prominent call-to-action line on the letter.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-3"
+        ],
+        "quotes": [
+          "make a big letter of 500 words"
+        ]
+      },
+      "acceptanceCriteria": [
+        "The rendered letter body (excluding the final “Will you be my Valentine?” headline) is approximately 500 words (acceptable range: 450–550).",
+        "The letter remains romantic and suitable for asking the user’s girlfriend to be their Valentine.",
+        "The existing animated line/letter reveal behavior still works (no broken layout, no missing text).",
+        "The final main question text remains exactly: “Will you be my Valentine?” and remains visually prominent."
+      ]
+    }
+  ],
+  "constraints": [
+    "Do not modify any files under frontend/src/components/ui or other paths listed as immutable in SYSTEM_CONTEXT.",
+    "Do not add or require any backend canister logic for this change."
+  ],
+  "nonGoals": [
+    "Adding music/audio.",
+    "Changing CTA button behavior, outcomes, or scene transitions.",
+    "Generating or modifying any image assets."
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  }
+}

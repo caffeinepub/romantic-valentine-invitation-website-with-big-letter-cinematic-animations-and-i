@@ -1,0 +1,76 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 5,
+  "summary": "Build a romantic Valentine invitation website with a big heartfelt letter, cinematic animations, and interactive buttons.",
+  "architectural_notes": [],
+  "known_issues": [],
+  "isFixRequest": false,
+  "existing_features": [
+    {
+      "id": "feature-create-a-single-page-valentine-invitation-website-that-asks-the-user-s-girlfriend-to-be-their-valentine-featuring-a-prominent-large-heartfelt-letter-as-the-main-content-and-clear-call-to-action-buttons",
+      "title": "Create a single-page Valentine invitation website that asks the user's girlfriend to be their valentine, featuring a prominent large heartfelt letter as the main content and clear call-to-action buttons.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-cinematic-animations-to-the-page-an-on-load-sequence-for-the-letter-and-background-and-animated-interactions-for-the-cta-buttons-hover-press-and-click-using-smooth-easing-and-staggered-motion",
+      "title": "Add cinematic animations to the page: an on-load sequence for the letter and background, and animated interactions for the CTA buttons (hover, press, and click), using smooth easing and staggered motion.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-button-outcomes-with-cinematic-feedback-clicking-yes-transitions-to-a-celebratory-scene-message-while-clicking-no-produces-a-playful-non-harsh-response-that-keeps-the-experience-romantic",
+      "title": "Implement button outcomes with cinematic feedback: clicking “Yes” transitions to a celebratory scene/message, while clicking “No” produces a playful, non-harsh response that keeps the experience romantic.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-apply-a-cohesive-romantic-visual-theme-distinct-colors-typography-spacing-and-layout-and-use-it-consistently-across-the-page-components-and-animations",
+      "title": "Apply a cohesive romantic visual theme (distinct colors, typography, spacing, and layout) and use it consistently across the page components and animations.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-the-required-generated-images-to-the-project-as-static-assets-under-frontend-public-assets-generated-and-use-them-in-the-ui-background-illustration-and-favicon",
+      "title": "Add the required generated images to the project as static assets under frontend/public/assets/generated and use them in the UI (background/illustration and favicon).",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-replace-the-current-short-letter-content-in-the-valentine-invitation-letter-with-a-single-cohesive-heartfelt-english-letter-of-approximately-500-words-keeping-the-final-main-question-will-you-be-my-valentine-as-the-prominent-call-to-action-line-on-the-letter",
+      "title": "Replace the current short letter content in the Valentine invitation letter with a single cohesive heartfelt English letter of approximately 500 words, keeping the final main question “Will you be my Valentine?” as the prominent call-to-action line on the letter.",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Create a Valentine invitation website asking the user's girlfriend to be their valentine, featuring a large letter, cinematic animations, and interactive buttons.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Write and display a large heartfelt main letter with approximately 500 words as the primary content of the Valentine invitation page.",
+      "reqIds": [],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "Romantic Valentine invitation website with big letter, cinematic animations, and interactive buttons",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

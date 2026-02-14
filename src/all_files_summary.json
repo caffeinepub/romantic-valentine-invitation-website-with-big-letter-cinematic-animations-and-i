@@ -1,0 +1,18 @@
+{
+  "backend/main.mo": "Minimal Motoko canister actor with no methods.",
+  "feature_evidence.json": "Feature evidence report describing the 500‑word Valentine letter update referencing LetterCard.tsx.",
+  "frontend-file-summaries.txt": "Text file containing prewritten summaries of all frontend React components and assets.",
+  "frontend/index.css": "Defines global Tailwind layers and OKLCH-based color variables for light/dark themes with base styling.",
+  "frontend/index.html": "HTML entry point loading the React app and Valentine-themed metadata.",
+  "frontend/src/App.tsx": "Root component rendering the ValentineInvitePage.",
+  "frontend/src/components/CtaRow.tsx": "Renders animated Yes/No CTA buttons using shadcn Button components.",
+  "frontend/src/components/LetterCard.tsx": "Displays an animated multi-line heartfelt letter ending with the main Valentine question.",
+  "frontend/src/components/OutcomeScene.tsx": "Shows the yes or no outcome scenes with themed animations and a reset button.",
+  "frontend/src/components/ValentineInvitePage.tsx": "Controls scene transitions, background animations, and renders the letter, CTA, or outcome scenes.",
+  "frontend/src/hooks/useActor.ts": "React hook creating and refreshing a backend actor tied to Internet Identity authentication.",
+  "frontend/src/hooks/useInternetIdentity.ts": "Provides a React context and provider for managing Internet Identity authentication, including loading, login, logout, and status tracking using Dfinity AuthClient.",
+  "frontend/src/index.css": "Defines Tailwind layers and extensive custom CSS variables for a romantic light/dark theme and component styling such as letter cards.",
+  "frontend/src/main.tsx": "Bootstraps the React app, wrapping it with QueryClientProvider and InternetIdentityProvider before rendering App.",
+  "frontend/tailwind.config.js": "Configures Tailwind with theme extensions, custom romantic color tokens, typography, animations, and plugin integrations.",
+  "project_state.json": "Holds project metadata, feature definitions, pending requests, and overall state for the Valentine invitation website."
+}
