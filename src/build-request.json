@@ -1,39 +1,84 @@
 {
   "kind": "build_request",
-  "title": "Expand the Valentine letter to ~500 words",
+  "title": "Remove the photo montage and all user photos from the Valentine experience",
   "priority": "normal",
   "requirements": [
     {
-      "id": "REQ-6",
-      "text": "Replace the current short letter content in the Valentine invitation letter with a single cohesive heartfelt English letter of approximately 500 words, keeping the final main question “Will you be my Valentine?” as the prominent call-to-action line on the letter.",
+      "id": "REQ-11",
+      "text": "Remove the “Memories” photo montage scene from the Valentine site so no user photos are shown anywhere in the UI.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-3"
+          "msg-1"
         ],
         "quotes": [
-          "make a big letter of 500 words"
+          "remove photos"
         ]
       },
       "acceptanceCriteria": [
-        "The rendered letter body (excluding the final “Will you be my Valentine?” headline) is approximately 500 words (acceptable range: 450–550).",
-        "The letter remains romantic and suitable for asking the user’s girlfriend to be their Valentine.",
-        "The existing animated line/letter reveal behavior still works (no broken layout, no missing text).",
-        "The final main question text remains exactly: “Will you be my Valentine?” and remains visually prominent."
+        "The app no longer renders or links to the Memories montage scene in any flow/state.",
+        "No photo images from `/assets/memories/*` are referenced by any React component at runtime.",
+        "The Valentine experience still includes the initial letter scene, the Yes/No outcome scenes, and the proposal scene."
+      ]
+    },
+    {
+      "id": "REQ-12",
+      "text": "Update the Valentine flow so that the “Yes” outcome’s Continue action transitions directly to the proposal scene (skipping any photo/memories step).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "remove photos"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Clicking “Yes” then “Continue” takes the user to the proposal scene.",
+        "No intermediate scene/state named “memories” remains in the flow logic.",
+        "Keyboard navigation or UI controls previously used for the montage are no longer available in production builds."
+      ]
+    },
+    {
+      "id": "REQ-13",
+      "text": "Remove montage-specific code and styling that is no longer used after deleting the photo montage (component, imports, and montage CSS rules), ensuring the app builds cleanly with no unused-scene references.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "remove photos"
+        ]
+      },
+      "acceptanceCriteria": [
+        "`MemoriesMontageScene` is no longer imported or referenced by `ValentineInvitePage`.",
+        "Montage-related CSS selectors (e.g., `.montage-*`) are removed if they are no longer used anywhere else.",
+        "The project builds without TypeScript errors related to the removed montage feature."
       ]
     }
   ],
   "constraints": [
-    "Do not modify any files under frontend/src/components/ui or other paths listed as immutable in SYSTEM_CONTEXT.",
-    "Do not add or require any backend canister logic for this change."
+    "Do not edit files under frontend/immutablePaths (e.g., Internet Identity hooks and ui components).",
+    "Keep the existing romantic theme, letter content, cinematic effects (film grain/vignette), and proposal flow intact."
   ],
   "nonGoals": [
-    "Adding music/audio.",
-    "Changing CTA button behavior, outcomes, or scene transitions.",
-    "Generating or modifying any image assets."
+    "Adding new photos or replacing the montage with another gallery experience.",
+    "Fixing the earlier issue of an uploaded photo not being visible (this change intentionally removes photos entirely).",
+    "Adding background music (not requested in this change)."
   ],
   "imageRequirements": {
     "required": [],
     "edits": []
+  },
+  "userProfileUpdate": {
+    "goalsToAdd": [],
+    "goalsToRemove": [],
+    "preferencesToAdd": [],
+    "preferencesToRemove": [],
+    "miscToAdd": [],
+    "miscToRemove": [],
+    "fieldsToSet": {},
+    "fieldsToDelete": []
   }
 }

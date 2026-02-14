@@ -1,32 +1,46 @@
 {
   "kind": "spec_vs_diff_report",
   "version": "1.0",
-  "generatedAt": "2026-02-14T06:38:51.043Z",
-  "summary": "REQ-6 is partially implemented: the LetterCard content was expanded and the final headline remains exactly “Will you be my Valentine?” with the same staggered reveal logic. However, based on the visible letter text, the body does not clearly reach the required ~500 words (450–550). Additional non-requested metadata/documentation files were also modified.",
+  "generatedAt": "2026-02-14T08:06:46.409Z",
+  "summary": "The diff updates ValentineInvitePage to remove the \"memories\" state and route the Yes→Continue action directly to the proposal scene, but it does not fully remove the Memories montage feature from the codebase: the MemoriesMontageScene component still exists and (per the diff summary) still contains montage UI, photo display logic, and keyboard navigation.",
   "missing_requirements": [
     {
-      "id": "REQ-6",
-      "requirement": "The rendered letter body (excluding the final “Will you be my Valentine?” headline) is approximately 500 words (acceptable range: 450–550).",
-      "reason": "The updated letter body shown in the diff appears significantly shorter than ~500 words (it contains roughly ~10 paragraphs/sections and reads closer to ~300–400 words). The diff does not show additional text beyond what is visible, so the acceptance range is not clearly met.",
+      "id": "REQ-11",
+      "requirement": "Remove the “Memories” photo montage scene so no user photos are shown anywhere in the UI, and ensure no `/assets/memories/*` images are referenced by any React component at runtime.",
+      "reason": "ValentineInvitePage no longer links to a memories scene, but the montage component still exists and is described as displaying romantic memories with cinematic effects, implying user-photo rendering and likely `/assets/memories/*` usage remains in the component codebase. The diff summary does not show removal of any `/assets/memories/*` references from React components.",
       "evidence": [
-        "frontend/src/components/LetterCard.tsx"
+        "frontend/src/components/MemoriesMontageScene.tsx",
+        "frontend-file-summaries.txt"
       ]
-    }
-  ],
-  "hallucinated_features": [
+    },
     {
-      "description": "Updated/added metadata summaries describing multiple frontend files and features (not required for changing the letter text).",
-      "reason": "BuildRequest only asks to expand the Valentine letter content and explicitly avoids other changes; modifying project metadata/documentation is not requested.",
+      "id": "REQ-12",
+      "requirement": "Remove any keyboard navigation or UI controls previously used for the montage from production builds.",
+      "reason": "Even though the flow now skips memories, the montage component is still present and is described as including keyboard navigation (arrow keys) and montage UI controls, meaning these controls likely still ship in the build (even if unreachable through current flow).",
       "evidence": [
+        "frontend/src/components/MemoriesMontageScene.tsx",
+        "frontend-file-summaries.txt"
+      ]
+    },
+    {
+      "id": "REQ-13",
+      "requirement": "Remove montage-specific code (component/imports) and styling no longer used after deleting the montage, ensuring no unused-scene references and clean builds.",
+      "reason": "`ValentineInvitePage` no longer imports the montage (satisfying part of the AC), and montage CSS is reported removed, but the montage component itself is not removed and appears to still contain montage-specific code (Ken Burns effects, captions, keyboard navigation).",
+      "evidence": [
+        "frontend/src/components/ValentineInvitePage.tsx",
+        "frontend/src/components/MemoriesMontageScene.tsx",
         "frontend-file-summaries.txt",
-        "project_state.json"
+        "frontend/src/index.css"
       ]
     }
   ],
-  "confidence": 0.72,
+  "hallucinated_features": [],
+  "confidence": 0.74,
   "changed_files": [
     "frontend-file-summaries.txt",
-    "frontend/src/components/LetterCard.tsx",
+    "frontend/src/components/MemoriesMontageScene.tsx",
+    "frontend/src/components/ValentineInvitePage.tsx",
+    "frontend/src/index.css",
     "project_state.json"
   ]
 }

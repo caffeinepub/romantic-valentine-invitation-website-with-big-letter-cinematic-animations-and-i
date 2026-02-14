@@ -1,13 +1,14 @@
 import { Button } from '@/components/ui/button';
-import { Heart, Sparkles, RotateCcw } from 'lucide-react';
+import { Heart, Sparkles, RotateCcw, ArrowRight } from 'lucide-react';
 import { useState, useEffect } from 'react';
 
 interface OutcomeSceneProps {
   type: 'yes' | 'no';
   onReset: () => void;
+  onContinue?: () => void;
 }
 
-export default function OutcomeScene({ type, onReset }: OutcomeSceneProps) {
+export default function OutcomeScene({ type, onReset, onContinue }: OutcomeSceneProps) {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -45,12 +46,22 @@ export default function OutcomeScene({ type, onReset }: OutcomeSceneProps) {
             </p>
           </div>
 
-          <div className="mt-10 flex justify-center">
+          <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+            {onContinue && (
+              <Button
+                onClick={onContinue}
+                size="lg"
+                className="outcome-continue-button group min-w-[200px]"
+              >
+                <ArrowRight className="mr-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+                Continue
+              </Button>
+            )}
             <Button
               onClick={onReset}
               variant="outline"
               size="lg"
-              className="outcome-reset-button group"
+              className="outcome-reset-button group min-w-[200px]"
             >
               <RotateCcw className="mr-2 h-5 w-5 transition-transform group-hover:rotate-180" />
               Read Again

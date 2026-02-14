@@ -2,8 +2,9 @@ import { useState } from 'react';
 import LetterCard from './LetterCard';
 import CtaRow from './CtaRow';
 import OutcomeScene from './OutcomeScene';
+import ProposalScene from './ProposalScene';
 
-type Scene = 'initial' | 'yes' | 'no';
+type Scene = 'initial' | 'yes' | 'no' | 'proposal';
 
 export default function ValentineInvitePage() {
   const [scene, setScene] = useState<Scene>('initial');
@@ -18,6 +19,7 @@ export default function ValentineInvitePage() {
   const handleYes = () => setScene('yes');
   const handleNo = () => setScene('no');
   const handleReset = () => setScene('initial');
+  const handleContinueToProposal = () => setScene('proposal');
 
   return (
     <div className="relative min-h-screen overflow-hidden">
@@ -33,6 +35,10 @@ export default function ValentineInvitePage() {
         }}
       />
       <div className="fixed inset-0 bg-gradient-to-b from-romantic-overlay/60 via-romantic-overlay/40 to-romantic-overlay/70 backdrop-blur-[2px]" />
+
+      {/* Cinematic effects: Film grain + Vignette */}
+      <div className="cinema-grain" />
+      <div className="cinema-vignette" />
 
       {/* Main content */}
       <main className="relative z-10 flex min-h-screen items-center justify-center px-4 py-12">
@@ -61,8 +67,11 @@ export default function ValentineInvitePage() {
             </div>
           )}
 
-          {scene === 'yes' && <OutcomeScene type="yes" onReset={handleReset} />}
+          {scene === 'yes' && (
+            <OutcomeScene type="yes" onReset={handleReset} onContinue={handleContinueToProposal} />
+          )}
           {scene === 'no' && <OutcomeScene type="no" onReset={handleReset} />}
+          {scene === 'proposal' && <ProposalScene onReset={handleReset} />}
         </div>
       </main>
 

@@ -1,22 +1,93 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Expand Valentine letter content to ~500 words",
+  "title": "Remove Memories montage and photo references from Valentine flow",
   "requirements": [
     {
-      "id": "REQ-6",
-      "summary": "Update the Valentine invitation letter body to a single cohesive heartfelt ~500-word English letter while keeping the final “Will you be my Valentine?” line exactly and visually prominent, without breaking the existing reveal animations.",
+      "id": "REQ-11",
+      "summary": "Remove the Memories montage scene so user photos are never shown or reachable in the Valentine UI.",
       "acceptanceCriteria": [
-        "The rendered letter body (excluding the final “Will you be my Valentine?” headline) is approximately 500 words (acceptable range: 450–550).",
-        "The letter remains romantic and suitable for asking the user’s girlfriend to be their Valentine.",
-        "The existing animated line/letter reveal behavior still works (no broken layout, no missing text).",
-        "The final main question text remains exactly: “Will you be my Valentine?” and remains visually prominent."
+        "The app no longer renders or links to the Memories montage scene in any flow/state.",
+        "No photo images from `/assets/memories/*` are referenced by any React component at runtime.",
+        "The Valentine experience still includes the initial letter scene, the Yes/No outcome scenes, and the proposal scene."
       ],
       "file_operations": [
         {
-          "path": "frontend/src/components/LetterCard.tsx",
+          "path": "frontend/src/components/ValentineInvitePage.tsx",
           "operation": "modify",
-          "description": "Replace the current short `letterLines` content with a single cohesive heartfelt English letter totaling ~500 words (450–550 acceptable), while preserving the existing `letterLines.map(...)` reveal animation behavior and keeping the final `<h1>` text exactly “Will you be my Valentine?” (unchanged and prominent). Ensure any line breaks are represented as empty-string entries so spacing and animation cadence remain intact."
+          "description": "Remove the Memories scene from the scene union/state machine and eliminate any conditional rendering/navigation that would take the user to a Memories montage, keeping initial letter, Yes/No outcomes, and proposal scenes intact."
+        },
+        {
+          "path": "frontend/public/assets/memories/WhatsApp Image 2026-02-08 at 6.57.42 PM.jpeg",
+          "operation": "delete",
+          "description": "Remove user photo asset so it cannot be displayed or accidentally referenced in the UI."
+        },
+        {
+          "path": "frontend/public/assets/memories/V.jpeg",
+          "operation": "delete",
+          "description": "Remove user photo asset so it cannot be displayed or accidentally referenced in the UI."
+        },
+        {
+          "path": "frontend/public/assets/memories/VVVV.jpeg",
+          "operation": "delete",
+          "description": "Remove user photo asset so it cannot be displayed or accidentally referenced in the UI."
+        },
+        {
+          "path": "frontend/public/assets/memories/WhatsApp Image 2026-02-08 at 6.57.41 PM.jpeg",
+          "operation": "delete",
+          "description": "Remove user photo asset so it cannot be displayed or accidentally referenced in the UI."
+        },
+        {
+          "path": "frontend/public/assets/memories/p1.jpg.jpeg",
+          "operation": "delete",
+          "description": "Remove user photo asset so it cannot be displayed or accidentally referenced in the UI."
+        },
+        {
+          "path": "frontend/public/assets/memories/p4.jpg.jpeg",
+          "operation": "delete",
+          "description": "Remove user photo asset so it cannot be displayed or accidentally referenced in the UI."
+        }
+      ]
+    },
+    {
+      "id": "REQ-12",
+      "summary": "Update the Yes outcome so Continue transitions directly to the proposal scene, removing any memories step and its controls.",
+      "acceptanceCriteria": [
+        "Clicking “Yes” then “Continue” takes the user to the proposal scene.",
+        "No intermediate scene/state named “memories” remains in the flow logic.",
+        "Keyboard navigation or UI controls previously used for the montage are no longer available in production builds."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/ValentineInvitePage.tsx",
+          "operation": "modify",
+          "description": "Change the Yes outcome Continue handler to set the scene directly to the proposal scene, and remove any remaining 'memories' scene/state transitions so no montage-related controls can be reached."
+        }
+      ]
+    },
+    {
+      "id": "REQ-13",
+      "summary": "Delete montage-specific component code and remove montage-only styling/imports so the project builds cleanly with no unused references.",
+      "acceptanceCriteria": [
+        "`MemoriesMontageScene` is no longer imported or referenced by `ValentineInvitePage`.",
+        "Montage-related CSS selectors (e.g., `.montage-*`) are removed if they are no longer used anywhere else.",
+        "The project builds without TypeScript errors related to the removed montage feature."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/MemoriesMontageScene.tsx",
+          "operation": "delete",
+          "description": "Remove the Memories montage component implementation entirely, including its photo imports/paths and keyboard navigation logic."
+        },
+        {
+          "path": "frontend/src/components/ValentineInvitePage.tsx",
+          "operation": "modify",
+          "description": "Remove the `MemoriesMontageScene` import and any JSX branches/handlers referencing it; ensure the remaining scene union/types contain no 'memories' value."
+        },
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Remove montage-specific CSS selectors (the `.montage-*` block) that are no longer used after deleting the montage scene, while keeping the existing romantic theme and cinematic effects intact."
         }
       ]
     }

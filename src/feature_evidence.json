@@ -2,10 +2,10 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-replace-the-current-short-letter-content-in-the-valentine-invitation-letter-with-a-single-cohesive-heartfelt-english-letter-of-approximately-500-words-keeping-the-final-main-question-will-you-be-my-valentine-as-the-prominent-call-to-action-line-on-the-letter",
-      "featureTitle": "Replace the current short letter content in the Valentine invitation letter with a single cohesive heartfelt English letter of approximately 500 words, keeping the final main question “Will you be my Valentine?” as the prominent call-to-action line on the letter.",
+      "featureId": "feature-remove-the-memories-photo-montage-scene-from-the-valentine-site-so-no-user-photos-are-shown-anywhere-in-the-ui",
+      "featureTitle": "Remove the “Memories” photo montage scene from the Valentine site so no user photos are shown anywhere in the UI.",
       "files": [
-        "frontend/src/components/LetterCard.tsx"
+        "frontend/src/components/ValentineInvitePage.tsx"
       ],
       "components": [
         "core-infrastructure@1.0.2",
@@ -15,7 +15,45 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-6"
+        "REQ-11"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-update-the-valentine-flow-so-that-the-yes-outcome-s-continue-action-transitions-directly-to-the-proposal-scene-skipping-any-photo-memories-step",
+      "featureTitle": "Update the Valentine flow so that the “Yes” outcome’s Continue action transitions directly to the proposal scene (skipping any photo/memories step).",
+      "files": [
+        "frontend/src/components/ValentineInvitePage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-12"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-remove-montage-specific-code-and-styling-that-is-no-longer-used-after-deleting-the-photo-montage-component-imports-and-montage-css-rules-ensuring-the-app-builds-cleanly-with-no-unused-scene-references",
+      "featureTitle": "Remove montage-specific code and styling that is no longer used after deleting the photo montage (component, imports, and montage CSS rules), ensuring the app builds cleanly with no unused-scene references.",
+      "files": [
+        "frontend/src/components/MemoriesMontageScene.tsx",
+        "frontend/src/components/ValentineInvitePage.tsx",
+        "frontend/src/index.css"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-13"
       ],
       "confidence": "high"
     }

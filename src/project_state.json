@@ -1,10 +1,12 @@
 {
   "schemaVersion": "1.0.0",
-  "projectStateVersion": 5,
-  "summary": "Build a romantic Valentine invitation website with a big heartfelt letter, cinematic animations, and interactive buttons.",
+  "projectStateVersion": 9,
+  "summary": "Expand the Valentine invitation website with cinema-grade interactive animations, add romantic background music, and include a proposal moment/flow (photos/montage removed from scope).",
   "architectural_notes": [],
-  "known_issues": [],
-  "isFixRequest": false,
+  "known_issues": [
+    "User-uploaded photo is not visible / not being added to the site as expected."
+  ],
+  "isFixRequest": true,
   "existing_features": [
     {
       "id": "feature-create-a-single-page-valentine-invitation-website-that-asks-the-user-s-girlfriend-to-be-their-valentine-featuring-a-prominent-large-heartfelt-letter-as-the-main-content-and-clear-call-to-action-buttons",
@@ -53,6 +55,62 @@
         "REQ-6"
       ],
       "version": 1
+    },
+    {
+      "id": "feature-add-the-6-user-uploaded-photos-as-static-frontend-assets-and-render-them-in-a-new-interactive-cinematic-memories-photo-montage-section-scene-not-just-a-plain-grid-the-montage-must-include-smooth-transitions-e-g-crossfade-subtle-zoom-parallax-and-support-both-desktop-and-mobile",
+      "title": "Add the 6 user-uploaded photos as static frontend assets and render them in a new interactive, cinematic “memories” photo montage section/scene (not just a plain grid). The montage must include smooth transitions (e.g., crossfade + subtle zoom/parallax) and support both desktop and mobile.",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-pair-each-displayed-photo-in-the-montage-with-a-different-romantic-english-message-short-heartfelt-and-unique-per-photo-and-present-the-message-as-an-animated-overlay-caption-that-appears-in-sync-with-the-photo-transition",
+      "title": "Pair each displayed photo in the montage with a different romantic English message (short, heartfelt, and unique per photo) and present the message as an animated overlay/caption that appears in sync with the photo transition.",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-upgrade-the-overall-page-to-feel-more-cinema-grade-and-interactive-by-adding-tasteful-cinematic-effects-e-g-film-grain-overlay-vignette-light-leaks-bokeh-particles-and-or-subtle-parallax-layers-that-enhance-the-existing-romantic-theme-without-hurting-performance-or-readability",
+      "title": "Upgrade the overall page to feel more “cinema grade” and interactive by adding tasteful cinematic effects (e.g., film grain overlay, vignette, light leaks/bokeh/particles, and/or subtle parallax layers) that enhance the existing romantic theme without hurting performance or readability.",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-proposal-moment-flow-after-the-valentine-yes-path-transition-from-the-current-yes-outcome-into-a-proposal-scene-that-culminates-in-a-clear-proposal-question-in-english-e-g-will-you-marry-me-with-interactive-buttons-and-cinematic-feedback",
+      "title": "Add a proposal moment/flow after the Valentine “Yes” path: transition from the current “Yes” outcome into a proposal scene that culminates in a clear proposal question in English (e.g., “Will you marry me?”) with interactive buttons and cinematic feedback.",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-remove-the-memories-photo-montage-scene-from-the-valentine-site-so-no-user-photos-are-shown-anywhere-in-the-ui",
+      "title": "Remove the “Memories” photo montage scene from the Valentine site so no user photos are shown anywhere in the UI.",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-valentine-flow-so-that-the-yes-outcome-s-continue-action-transitions-directly-to-the-proposal-scene-skipping-any-photo-memories-step",
+      "title": "Update the Valentine flow so that the “Yes” outcome’s Continue action transitions directly to the proposal scene (skipping any photo/memories step).",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-remove-montage-specific-code-and-styling-that-is-no-longer-used-after-deleting-the-photo-montage-component-imports-and-montage-css-rules-ensuring-the-app-builds-cleanly-with-no-unused-scene-references",
+      "title": "Remove montage-specific code and styling that is no longer used after deleting the photo montage (component, imports, and montage CSS rules), ensuring the app builds cleanly with no unused-scene references.",
+      "reqIds": [
+        "REQ-13"
+      ],
+      "version": 1
     }
   ],
   "new_feature_requests": [
@@ -65,6 +123,18 @@
     {
       "id": "AR-2",
       "summary": "Write and display a large heartfelt main letter with approximately 500 words as the primary content of the Valentine invitation page.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Upgrade the experience to a more interactive, cinema-grade style and include a proposal moment/flow in addition to the Valentine ask.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Add romantic background music to deepen the cinematic feel, with user-friendly controls (play/pause, mute/volume) and mobile-safe autoplay behavior.",
       "reqIds": [],
       "status": "pending"
     }
